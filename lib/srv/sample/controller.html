@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="kale.js"></script>
+</head>
+<body style="padding:25%">
+    <div class="width:100%;height:100%;border-width:5px;" id="touchable">This is the big touchable div.</div>
+</body>
+<script>
+    document.getElementById('touchable').addEventListener('touchstart', function (ev) {
+        var q = new Kale.queue({baseurl: 'http://192.168.1.10:8889/', queueid: 1});
+        q.enqueue('event');
+    });
+</script>
+</html>

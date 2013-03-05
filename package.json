@@ -1,0 +1,9 @@
+{
+    "name": "kale",
+    "description": "a fun experiment to control the desktop browser with the mobile browser",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.1.0"
+    }
+}

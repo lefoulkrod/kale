@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="jquery-1.9.1.js"></script>
+    <script src="kale.js"></script>
+    <script>
+        $(function () {
+            $('#notify').hide();
+            new Kale.queue({
+                handler: function () {
+                    $('#notify').fadeIn('fast').delay(500).fadeOut('slow');
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div id="notify" style="font-size:24px;background-color:red;color:blue;margin:25%;text-align:center;">Event Received</div>
+</body>
+</html>
