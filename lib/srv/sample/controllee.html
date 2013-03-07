@@ -10,9 +10,13 @@
         $(function () {
             $('#notify').hide();
             new Kale.queue({
-                handler: function () {
-                    $('#notify').fadeIn('fast').delay(500).fadeOut('slow');
-                }
+                handlers: [{
+                    event: 'shoot',
+                    scope: this,
+                    fn: function () {
+                        $('#notify').fadeIn('fast').delay(500).fadeOut('slow');
+                    }
+                }]
             });
         });
 
