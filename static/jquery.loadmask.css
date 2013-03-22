@@ -1,0 +1,46 @@
+.loadmask {
+    z-index: 100;
+    position: absolute;
+    top:0;
+    left:0;
+    -moz-opacity: 0.5;
+    opacity: .50;
+    filter: alpha(opacity=50);
+    background-color: #CCC;
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+.loadmask-msg {
+    z-index: 20001;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgb(162, 162, 162);
+    background: #ffffff;
+    padding: 50px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+.loadmask-msg div {
+    padding: 3px 0 3px 35px;
+    margin: 0;
+    background: rgb(255, 255, 255) url('../../content/images/loading_animation.gif') no-repeat 5px 1px;
+    color: #222;
+    font: normal 11px tahoma, arial, helvetica, sans-serif;
+    cursor: wait;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    line-height: 18px;
+}
+.masked {
+    overflow: hidden !important;
+}
+.masked-relative {
+    position: relative !important;
+}
+.masked-hidden {
+    visibility: hidden !important;
+}

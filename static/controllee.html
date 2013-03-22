@@ -1,20 +1,53 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title></title>
     <script src="jquery-1.9.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="controllee.css" />
     <script src="kale.js"></script>
     <script>
         $(function () {
-            $('#notify').hide();
-            new Kale.queue({
-                handlers: [{
-                    event: 'shoot',
+            var q = new Kale.queue({
+                baseUrl: window.location.origin + '/',
+                handlers: [
+                {
+                    event: 'a',
                     scope: this,
                     fn: function () {
-                        $('#notify').fadeIn('fast').delay(500).fadeOut('slow');
+                        var area = $('#eventarea');
+                        area.text('A');
+                        area.fadeIn('fast').delay(500).fadeOut('slow');
+                    }
+                },
+                {
+                    //handle the created event fired by the kale client
+                    event: 'created',
+                    scope: this,
+                    fn: function () {
+
+                        //get the qr code img tag and add it to the div
+                        var qrimg = $('#qr');
+                        qrimg.html(q.qrimg);
+
+                        //position the qr in the center of the page
+                        var container = $('#mask');
+                        qrimg.css("top", Math.round((container.height() / 2) - ((qrimg.height() + parseInt(qrimg.css("padding-top")) + parseInt(qrimg.css("padding-bottom"))) / 2)) + "px");
+                        qrimg.css("left", Math.round((container.width() / 2) - ((qrimg.width() + parseInt(qrimg.css("padding-left")) + parseInt(qrimg.css("padding-right"))) / 2)) + "px");
+                        
+                        //show the qr img and the mask
+                        qrimg.show();                        
+                        container.show();
+                    }
+                },
+                {
+                    // handled the linked event fired when the client connects to the queue
+                    event: 'linked',
+                    scope: this,
+                    fn: function () {
+                        $('#mask').hide();
+                        $('#qr').hide();
+                        $('#eventarea').text('Linked');
                     }
                 }]
             });
@@ -23,6 +56,8 @@
     </script>
 </head>
 <body>
-    <div id="notify" style="font-size:24px;background-color:red;color:blue;margin:25%;text-align:center;">Event Received</div>
+    <div id="eventarea">Welcome!</div>
+    <div id="mask"></div>
+    <div id="qr"></div>
 </body>
 </html>
