@@ -14,9 +14,9 @@
                 {
                     event: 'a',
                     scope: this,
-                    fn: function () {
+                    fn: function (event) {
                         var area = $('#eventarea');
-                        area.text('A');
+                        area.text(event.name);
                         area.fadeIn('fast').delay(500).fadeOut('slow');
                     }
                 },

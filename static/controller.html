@@ -11,13 +11,13 @@
     <div class="width:50%;font-size:20px;" id="foo">Send event Foo.</div>
 </body>
 <script>
-    var q = new Kale.queue({ baseurl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
-    q.enqueue('linked');
+    var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
+    q.enqueue({ name: 'linked' });
     document.getElementById('shoot').addEventListener('touchstart', function (ev) {
-        q.enqueue('shoot');
+        q.enqueue({ name: 'a' });
     });
     document.getElementById('foo').addEventListener('touchstart', function (ev) {
-        q.enqueue('foo');
+        q.enqueue({ name: 'a' });
     });
 </script>
 </html>
