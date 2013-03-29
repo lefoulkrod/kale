@@ -15,21 +15,19 @@
         </script>
         <script src="my.js">
         </script>
-        <!-- User-generated css -->
-        <style>
-        </style>
+        <script src="kale.js"></script>
         <!-- User-generated js -->
         <script>
-                $(function () {
-                    var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
-                    q.enqueue({ name: 'linked' });
-                    $('#a').live('tap', function (ev) {
-                        q.enqueue({ name: 'A' });
-                    });
-                    $('#b').live('tap', function (ev) {
-                        q.enqueue({ name: 'B' });
-                    });
+            $(function () {
+                var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
+                q.enqueue({ name: 'linked' });
+                $('#a').live('tap', function (ev) {
+                    q.enqueue({ name: 'A' });
                 });
+                $('#b').live('tap', function (ev) {
+                    q.enqueue({ name: 'B' });
+                });
+            });
         </script>
     </head>
     <body>
