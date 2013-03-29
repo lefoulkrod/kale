@@ -28,10 +28,10 @@
     <script>
             var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
             q.enqueue({ name: 'linked' });
-            $('#a').live('tap click', function (ev) {
+            $('#a').live('tap', function (ev) {
                 q.enqueue({ name: 'A' });
             });
-            $('#b').live('tap click', function (ev) {
+            $('#b').live('tap', function (ev) {
                 q.enqueue({ name: 'B' });
             });
         </script>
