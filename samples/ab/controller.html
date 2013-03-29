@@ -13,12 +13,10 @@
         </script>
         <script src="https://s3.amazonaws.com/codiqa-cdn/mobile/1.2.0/jquery.mobile-1.2.0.min.js">
         </script>
-        <script src="my.js">
-        </script>
         <script src="kale.js"></script>
         <!-- User-generated js -->
         <script>
-            $(function () {
+            $(document).bind("mobileinit", function () {
                 var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
                 q.enqueue({ name: 'linked' });
                 $('#a').live('tap', function (ev) {
