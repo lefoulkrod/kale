@@ -12,7 +12,16 @@
                 baseUrl: window.location.origin + '/',
                 handlers: [
                 {
-                    event: 'a',
+                    event: 'A',
+                    scope: this,
+                    fn: function (event) {
+                        var area = $('#eventarea');
+                        area.text(event.name);
+                        area.fadeIn('fast').delay(500).fadeOut('slow');
+                    }
+                },
+                {
+                    event: 'B',
                     scope: this,
                     fn: function (event) {
                         var area = $('#eventarea');

@@ -8,33 +8,32 @@
         <title>
         </title>
         <link rel="stylesheet" href="https://s3.amazonaws.com/codiqa-cdn/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-        <link rel="stylesheet" href="my.css" />
         <script src="https://s3.amazonaws.com/codiqa-cdn/jquery-1.7.2.min.js">
         </script>
         <script src="https://s3.amazonaws.com/codiqa-cdn/mobile/1.2.0/jquery.mobile-1.2.0.min.js">
         </script>
         <script src="kale.js"></script>
         <!-- User-generated js -->
-        <script>
-            $(document).bind("mobileinit", function () {
-                var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
-                q.enqueue({ name: 'linked' });
-                $('#a').live('tap', function (ev) {
-                    q.enqueue({ name: 'A' });
-                });
-                $('#b').live('tap', function (ev) {
-                    q.enqueue({ name: 'B' });
-                });
-            });
-        </script>
+       
     </head>
     <body>
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-role="content">
-                <a href="#" data-role="button">A</a>
-                <a href="#" data-role="button">B</a>
+                <a href="#" data-role="button" id="a">A</a>
+                <a href="#" data-role="button" id="b">B</a>
             </div>
         </div>
     </body>
+    <script>
+            var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
+            q.enqueue({ name: 'linked' });
+            $('#a').live('tap click', function (ev) {
+                q.enqueue({ name: 'A' });
+            });
+            $('#b').live('tap click', function (ev) {
+                q.enqueue({ name: 'B' });
+            });
+        </script>
 </html>
+ 
