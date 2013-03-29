@@ -6,17 +6,17 @@
     <title></title>
     <script src="kale.js"></script>
 </head>
-<body style="padding:25%">
+<body style="margin:0px">
     <button style="width:90%;" type="button" id="a">A</button>
     <button style="width:90%;" type="button" id="b">B</button>
 </body>
 <script>
     var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
     q.enqueue({ name: 'linked' });
-    document.getElementById('a').addEventListener('touchstart', function (ev) {
+    document.getElementById('a').addEventListener('click', function (ev) {
         q.enqueue({ name: 'A' });
     });
-    document.getElementById('b').addEventListener('touchstart', function (ev) {
+    document.getElementById('b').addEventListener('click', function (ev) {
         q.enqueue({ name: 'B' });
     });
 </script>
