@@ -1,23 +1,43 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Page Title</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-    <script src="kale.js"></script>
-</head>
-<body style="margin:0px">
-    <button style="width:90%;" type="button" id="a">A</button>
-    <button style="width:90%;" type="button" id="b">B</button>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>AB Sample</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<a href="#" data-role="button">A</a>
+        <a href="#" data-role="button">B</a>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
 </body>
+</html>
 <script>
-    var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
-    q.enqueue({ name: 'linked' });
-    document.getElementById('a').addEventListener('click', function (ev) {
-        q.enqueue({ name: 'A' });
-    });
-    document.getElementById('b').addEventListener('click', function (ev) {
-        q.enqueue({ name: 'B' });
+    $(document).bind('pageinit', function () {
+        var q = new Kale.queue({ baseUrl: window.location.origin + '/', queueid: window.location.search.split('=')[1] });
+        q.enqueue({ name: 'linked' });
+        $('#a').live('tap', function (ev) {
+            q.enqueue({ name: 'A' });
+        });
+        $('#b').live('tap', function (ev) {
+            q.enqueue({ name: 'B' });
+        });
     });
 </script>
-</html>
