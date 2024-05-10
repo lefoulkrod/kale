@@ -1,7 +1,7 @@
 var path = require('path');
 var kalePath = path.join('..', '..', 'lib', 'srv', 'kale');
 var kale = require(kalePath);
-
+console.log('starting up')
 //start a new queueserver
 new kale.queueServer({
     port: process.env.PORT || 8889,
